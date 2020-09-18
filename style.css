@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "PT Sans Caption", sans-serif;
+  font-family: 'PT Sans Caption', sans-serif;
 }
 
 nav {
@@ -93,7 +93,7 @@ button:hover {
   padding: 0.5em;
   cursor: pointer;
   user-select: none;
-
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   transition: all 0.2s linear;
 }
 
