@@ -1,0 +1,280 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "PT Sans Caption", sans-serif;
+}
+
+nav {
+  top: 0;
+  display: sticky;
+  font-weight: lighter;
+  background-color: #f3f3f3;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding-left: 0;
+}
+
+nav ul li {
+  margin: 1em auto;
+  cursor: pointer;
+}
+
+#welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+#welcome h1 {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 0,9;
+}
+
+button {
+  margin: 2em;
+  padding: 0.5em;
+
+
+  border: 2px solid #ff5722;
+  border-radius: 5px;
+  outline: none;
+
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+
+  transition: 0.5s ease-in-out;
+}
+
+button:hover {
+  background-color: #ff5722;
+  transition: all 0.3s ease-in-out;
+  color: white;
+  font-size: 28px;
+  transform: scale(1.1);
+}
+
+#pokemon-list {
+    display: flex;
+    margin: 2em 5em;
+    text-align: center;
+    flex-direction: column;
+}
+
+#pokemon-list h2 {
+    margin-bottom: 1em;
+}
+
+#pokedex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  transition: filter 0.3s ease-in-out;
+}
+
+.pokemon-card {
+  min-width: 7em;
+  text-align: center;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+  cursor: pointer;
+  user-select: none;
+
+  transition: all 0.2s linear;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.1);
+}
+
+.pokemon-card .pokemon-name, #pokemon-info-name-n-img h3 {
+  text-transform: capitalize;
+}
+
+#pokemon-info {
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  z-index: 1;
+  padding: 1em;
+  color: black;
+  border-radius: 0.5em;
+  transform: translate(-50%,-50%);
+  transition: all 0.5s linear;
+}
+
+#pokemon-info .btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#pokemon-info .btn button {
+  height: auto;
+  width: auto;
+  font-size: 1em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#pokemon-info .btn button:hover {
+    color: #ff5722;
+    transform: scaleX(1);
+}
+
+#pokemon-info h3 {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+#pokemon-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+#pokemon-info-stats {
+    width: 50%;
+}
+
+#pokemon-info-height, #pokemon-info-weight {
+    white-space: pre;
+}
+
+#pokemon-info button {
+    margin: 15px auto; 
+    display: block;
+    padding: 15px 45px;
+    width: 90%;
+    height: auto;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#pokemon-info button:hover {
+    font-size: 13px;
+    transform: scaleX(1.1);
+}
+
+#pokemon-buy {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 50%;
+  left: -50%;
+  z-index: 2;
+  background-color: #f5f5f5;
+  transform: translate(-50%,-50%);
+  transition: all 0.5s linear;
+  color: black;
+  padding: 1em 2em;
+  text-align: center;
+  border-radius: 0.5em;
+  outline: none;
+}
+
+#pokemon-buy h2 span {
+    text-transform: uppercase;
+}
+
+#pokemon-buy #form-data {
+    border-radius: 0.5em;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 15px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+}
+
+#pokemon-buy input[type="text"] {
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    font-size: 12px;
+}
+
+#pokemon-buy button {
+    margin: 15px auto; 
+    display: block;
+    padding: 15px auto;
+    width: 90%;
+    height: auto;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#pokemon-buy button:hover {
+    transform: scaleX(1.1);
+}
+
+#pokemon-buy input:focus, #pokemon-buy input:focus::placeholder {
+    color: #fff;
+    background-color: #ff5722;
+}
+
+#spinner {
+  display: none; /*when shown this switches to flex*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  margin: -50px 0 0 -50px;
+
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #f25a41;
+  border-radius: 50%;
+
+  width: 150px;
+  height: 150px;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media(max-width: 600px) {
+    #welcome {
+        padding: auto 1em;
+        text-align: center;
+    }
+
+    #pokemon-list {
+        margin: auto 1em;
+    }
+
+    #pokemon-buy {
+        min-width: 60vw;
+    }
+}

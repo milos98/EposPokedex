@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li onclick="openWelcome()">Pocetak</li>
+        <li onclick="openPokemonList()">Lista pokemona</li>
+        <li onclick="randomPokemon()">Random pokemon</li>
+      </ul>
+    </nav>
+
+    <section id="welcome">
+      <h1>Dobrodošli u prodavnicu pokemona</h1>
+      <button onclick="openPokemonList()">Pogledajte pokemone u ponudi</button>
+    </section>
+
+    <section id="pokemon-list">
+      <h2>Pokemoni koji su trenutno u ponudi</h2>
+      <div id="pokedex"></div>
+    </section>
+
+    <section id="pokemon-info"></section>
+
+    <section id="pokemon-buy">
+      <h2 id="pokemon-selected">
+        Izabrani pokemon je:<br /><span id="selected-pokemon-name"></span>
+      </h2>
+      <form id="form" action="">
+        <div id="form-data">
+          <input
+            type="text"
+            id="fname"
+            name="first_name"
+            placeholder="Ime"
+            required
+          />
+          <input
+            type="text"
+            id="lname"
+            name="last_name"
+            placeholder="Prezime"
+            required
+          />
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Adresa"
+            required
+          />
+        </div>
+        <button type="submit">Poruči</button>
+        <button type="reset" onclick="closeForm()">Odustani</button>
+      </form>
+    </section>
+
+    <div id="spinner"></div>
+
+    <script src="pokemon.js"></script>
+  </body>
+</html>
