@@ -5,7 +5,6 @@ const pokemonList = document.getElementById("pokemon-list");
 const pokedex = document.getElementById("pokedex");
 const pokestats = document.getElementById("pokemon-info");
 const pokebuy = document.getElementById("pokemon-buy");
-const spinner = document.getElementById("spinner");
 const form = document.getElementById("form");
 
 const colors = {
@@ -54,7 +53,6 @@ const getPokemons = async () => {
 
       localStorage.setItem("pokemons", JSON.stringify(pokemons));
 
-      spinner.style.display = "none";
     });
   } else {
     addToPokedex(JSON.parse(localStorage.getItem("pokemons")));
@@ -173,11 +171,13 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     
     localStorage.setItem("cart",JSON.stringify({
-        ime: e.srcElement[0].value,
-        prezime: e.srcElement[1].value,
-        adresa: e.srcElement[2].value,
+        name: e.srcElement[0].value,
+        surname: e.srcElement[1].value,
+        address: e.srcElement[2].value,
         pokemon: selectedPokemon
-    }))
+    }));
+
+    const data = JSON.parse(localStorage.getItem("cart"));
     
     if(localStorage.getItem("cart") != null){
         alert("Proizvod porucen");
@@ -186,4 +186,14 @@ form.addEventListener("submit", (e) => {
     else{
         alert("Proizvod nije porucen, pokusajte ponovo");
     }
+
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onload = function () {
+      console.log(this.responseText);
+    }
+
+    xhttp.open("POST", "cart.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(`name=${data.name}&surname=${data.surname}&address=${data.address}&pokemonID=${data.pokemon._id}`);
 });
